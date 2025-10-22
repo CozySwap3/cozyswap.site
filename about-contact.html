@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CozySwap Team & Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === VARIABLES === */
+        :root {
+          --primary-purple: #8B5CF6;
+          --primary-pink: #EC4899;
+          --primary-blue: #3B82F6;
+          --primary-cyan: #06D6A0;
+          --bg-dark: #0F0F23;
+          --bg-darker: #0A0A18;
+          --bg-card: #1A1A2E;
+          --text-white: #FFFFFF;
+          --text-gray: #94A3B8;
+          --text-light: #E2E8F0;
+        }
+
+        /* === RESET & BASE === */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Inter', sans-serif;
+          background: var(--bg-darker);
+          color: var(--text-white);
+          line-height: 1.6;
+          padding-top: 80px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+        }
+
+        /* === UTILITY CLASSES === */
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+        .gradient-text {
+          background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .cyan-text {
+          background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+
+        .text-center { text-align: center; }
+        .mb-1 { margin-bottom: 1rem; }
+        .mb-2 { margin-bottom: 2rem; }
+        .mb-3 { margin-bottom: 3rem; }
+
+        /* === BUTTONS === */
+        .btn {
+          display: inline-block;
+          padding: 14px 28px;
+          border-radius: 12px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          border: none;
+          cursor: pointer;
+          font-size: 1rem;
+        }
+
+        .btn-primary {
+          background: linear-gradient(135deg, var(--primary-purple), var(--primary-pink));
+          color: white;
+        }
+
+        .btn-primary:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+        }
+
+        .btn-success {
+          background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue));
+          color: white;
+        }
+
+        .btn-success:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba(6, 214, 160, 0.4);
+        }
+
+        .btn-warning {
+          background: linear-gradient(135deg, #F59E0B, var(--primary-pink));
+          color: white;
+        }
+
+        .btn-warning:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        /* === NAVBAR === */
+        .navbar {
+          background: rgba(10, 10, 24, 0.95);
+          padding: 1rem 0;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+          border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .nav-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo {
+          height: 40px;
+          width: auto;
+        }
+
+        .nav-links {
+          display: flex;
+          gap: 2rem;
+          align-items: center;
+        }
+
+        .nav-links a {
+          color: var(--text-white);
+          text-decoration: none;
+          transition: color 0.3s ease;
+          font-weight: 500;
+        }
+
+        .nav-links a:hover {
+          color: var(--primary-purple);
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          background: 
+            radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+            linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+        }
+
+        .hero-content {
+          text-align: center;
+        }
+
+        .hero-content h1 {
+          font-size: 3.5rem;
+          margin-bottom: 1.5rem;
+          line-height: 1.1;
+        }
+
+        .hero-content p {
+          font-size: 1.3rem;
+          color: var(--text-light);
+          margin-bottom: 3rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .cta-buttons {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-bottom: 4rem;
+        }
+
+        /* === STATS GRID === */
+        .stats-grid {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          flex-wrap: wrap;
+        }
+
+        .stat-item {
+          text-align: center;
+          padding: 1.5rem;
+          border-radius: 16px;
+          min-width: 140px;
+        }
+
+        .stat-1 { background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.15)); }
+        .stat-2 { background: linear-gradient(135deg, rgba(6, 214, 160, 0.15), rgba(59, 130, 246, 0.15)); }
+        .stat-3 { background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(236, 72, 153, 0.15)); }
+
+        .stat-number {
+          font-size: 2.5rem;
+          font-weight: 800;
+          margin-bottom: 0.5rem;
+        }
+
+        /* === FEATURES GRID === */
+        .features {
+          padding: 6rem 0;
+          background: var(--bg-dark);
+        }
+
+        .features-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+          margin-top: 3rem;
+        }
+
+        .feature-card {
+          background: linear-gradient(145deg, var(--bg-card), var(--bg-darker));
+          padding: 2.5rem 2rem;
+          border-radius: 20px;
+          text-align: center;
+          transition: all 0.3s ease;
+          border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .feature-card:nth-child(1) { border-color: rgba(6, 214, 160, 0.3); }
+        .feature-card:nth-child(2) { border-color: rgba(59, 130, 246, 0.3); }
+        .feature-card:nth-child(3) { border-color: rgba(139, 92, 246, 0.3); }
+        .feature-card:nth-child(4) { border-color: rgba(236, 72, 153, 0.3); }
+
+        .feature-card:nth-child(1):hover { border-color: #06D6A0; }
+        .feature-card:nth-child(2):hover { border-color: #3B82F6; }
+        .feature-card:nth-child(3):hover { border-color: #8B5CF6; }
+        .feature-card:nth-child(4):hover { border-color: #EC4899; }
+
+        .feature-icon {
+          font-size: 3rem;
+          margin-bottom: 1.5rem;
+          display: block;
+        }
+
+        .feature-card:nth-child(1) .feature-icon { color: #06D6A0; }
+        .feature-card:nth-child(2) .feature-icon { color: #3B82F6; }
+        .feature-card:nth-child(3) .feature-icon { color: #8B5CF6; }
+        .feature-card:nth-child(4) .feature-icon { color: #EC4899; }
+
+        .feature-card h3 {
+          margin-bottom: 1rem;
+          font-size: 1.4rem;
+        }
+
+        .feature-card p {
+          color: var(--text-gray);
+          line-height: 1.6;
+        }
+
+        /* === FOOTER === */
+        footer {
+          background: var(--bg-darker);
+          padding: 4rem 0 2rem;
+          border-top: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+          .hero-content h1 {
+            font-size: 2.5rem;
+          }
+
+          .nav-links {
+            display: none;
+          }
+
+          .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .btn {
+            width: 250px;
+            text-align: center;
+          }
+        }
+        .about-content {
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+        }
+        
+        .mission-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+          margin: 4rem 0;
+        }
+        
+        .mission-card {
+          background: linear-gradient(145deg, var(--bg-card), var(--bg-darker));
+          padding: 2rem;
+          border-radius: 16px;
+          text-align: center;
+          border: 2px solid transparent;
+        }
+        
+        .mission-card:nth-child(1) { border-color: rgba(6, 214, 160, 0.3); }
+        .mission-card:nth-child(2) { border-color: rgba(59, 130, 246, 0.3); }
+        .mission-card:nth-child(3) { border-color: rgba(139, 92, 246, 0.3); }
+        
+        .contact-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 3rem;
+          margin-top: 3rem;
+        }
+        
+        .contact-info {
+          background: linear-gradient(145deg, var(--bg-card), var(--bg-darker));
+          padding: 2.5rem;
+          border-radius: 20px;
+          border: 2px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .contact-method {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+          padding: 1rem;
+          background: rgba(255,255,255,0.05);
+          border-radius: 12px;
+          transition: all 0.3s ease;
+        }
+        
+        .contact-method:hover {
+          background: rgba(139, 92, 246, 0.1);
+          transform: translateX(5px);
+        }
+        
+        .contact-icon {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: var(--gradient-primary);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+        }
+        
+        .contact-form {
+          background: linear-gradient(145deg, var(--bg-card), var(--bg-darker));
+          padding: 2.5rem;
+          border-radius: 20px;
+          border: 2px solid rgba(6, 214, 160, 0.3);
+        }
+        
+        .form-group {
+          margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: var(--text-light);
+          font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+          width: 100%;
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid rgba(255,255,255,0.1);
+          background: rgba(255,255,255,0.05);
+          color: var(--text-white);
+          font-size: 1rem;
+        }
+        
+        .form-group textarea {
+          height: 120px;
+          resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo" style="color: var(--primary-purple); font-size: 1.5rem; font-weight: 800;">CozySwap</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="learn.html">Learn</a>
+                <a href="tools.html">Tools</a>
+                <a href="faq.html">FAQ</a>
+                <a href="community.html">Community</a>
+                <a href="about-contact.html" style="color: var(--primary-purple);">About</a>
+                <a href="https://cozyswap.net" class="btn btn-primary" style="padding: 10px 20px;">Launch DEX</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" style="min-height: 50vh; background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-card) 100%);">
+        <div class="container hero-content">
+            <h1>About <span class="gradient-text">CozySwap</span> 🏢</h1>
+            <p>🌟 Our mission is to make decentralized finance accessible, secure, and profitable for everyone.</p>
+        </div>
+    </section>
+
+    <section style="padding: 6rem 0; background: var(--bg-dark);">
+        <div class="container about-content">
+            <h2 class="mb-2">Our <span class="cyan-text">Story</span> 📖</h2>
+            <p style="color: var(--text-light); line-height: 1.7; font-size: 1.1rem;">
+                CozySwap was born from a simple observation: DeFi is incredibly powerful but overwhelmingly complex for most people. 
+                We saw talented individuals hesitant to enter the space due to technical barriers, security concerns, and confusing interfaces.
+            </p>
+            <p style="color: var(--text-light); line-height: 1.7; font-size: 1.1rem; margin-top: 1.5rem;">
+                That's why we built CozySwap - not just as another DEX, but as a complete ecosystem that educates, empowers, and enables 
+                anyone to participate in decentralized finance confidently. From comprehensive learning resources to user-friendly trading 
+                tools, we're here to make your DeFi journey cozy and successful.
+            </p>
+            
+            <div class="mission-grid">
+                <div class="mission-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                    <h3>Our Mission</h3>
+                    <p style="color: var(--text-gray);">Democratize access to DeFi by making it simple, secure, and educational for everyone.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">👁️</div>
+                    <h3>Our Vision</h3>
+                    <p style="color: var(--text-gray);">A world where anyone can confidently participate in decentralized finance and build wealth.</p>
+                </div>
+                
+                <div class="mission-card">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>
+                    <h3>Our Values</h3>
+                    <p style="color: var(--text-gray);">Education first, security always, community forever, innovation constantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 6rem 0; background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);">
+        <div class="container">
+            <h2 class="text-center mb-2">Get In <span class="gradient-text">Touch</span> 📞</h2>
+            <p class="text-center" style="color: var(--text-light); max-width: 600px; margin: 0 auto 3rem;">We'd love to hear from you! Reach out for support, partnerships, or just to say hello.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3 class="mb-2">Contact Information</h3>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Email</div>
+                            <div style="color: var(--text-gray);">support@cozyswap.net</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Twitter</div>
+                            <div style="color: var(--text-gray);">@CozySwap</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Discord</div>
+                            <div style="color: var(--text-gray);">Join our server</div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Documentation</div>
+                            <div style="color: var(--text-gray);">docs.cozyswap.net</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 class="mb-2">Send us a Message</h3>
+                    
+                    <div class="form-group">
+                        <label>Your Name</label>
+                        <input type="text" placeholder="Enter your name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter your email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <select>
+                            <option>General Inquiry</option>
+                            <option>Technical Support</option>
+                            <option>Partnership</option>
+                            <option>Bug Report</option>
+                            <option>Feature Request</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea placeholder="Tell us how we can help you..."></textarea>
+                    </div>
+                    
+                    <button class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
